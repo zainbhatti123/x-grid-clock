@@ -1,0 +1,83 @@
+@keyframes spin {
+    0% {
+        transform: rotate(-180deg)
+    }
+    100% {
+        transform: rotate(180deg)
+    }
+}
+body {
+  overflow: hidden;
+}
+.container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.clock {
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(0deg, #f3f3f3, #f3f3f3),
+    linear-gradient(0deg, #ffffff, #ffffff);
+  padding: 15px;
+  border-radius: 50%;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.lines {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.lines img {
+  height: 90%;
+  width: 90%;
+}
+
+.pin-section {
+    height: 100px;
+    width: 100px;
+    display: grid;
+    place-items: center;
+    position: relative;
+} 
+.pin-section > div{
+    position: absolute;
+    transform-origin: top;
+}
+.pin-section > div:first-child img{
+    height: 100px;
+    animation: spin 2s linear infinite;
+    z-index: 2;
+}
+.pin-section > div:nth-child(2) img{
+    height: 60px;
+    animation: spin 24s linear infinite;
+    z-index: 3;
+}
+.pin-section > div:last-child img{
+    height: 40px;
+    animation: spin 288s linear infinite;
+    z-index: 4;
+}
+.pin-section img {
+    max-width: 100%;
+    height: auto;
+}
+.pin-section::after{
+    content: "";
+    height: 7px;
+    width: 7px;
+    border-radius: 50%;
+    background-color: #fff;
+    z-index: 10;
+    position: absolute;
+}
